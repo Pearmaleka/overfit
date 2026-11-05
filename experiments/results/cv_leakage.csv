@@ -1,0 +1,163 @@
+data,seed,horizon,scheme,auc
+synthetic,0,1,Purged k-fold (1% embargo),0.499515
+synthetic,0,1,Shuffled k-fold,0.488087
+synthetic,0,1,Contiguous k-fold,0.489482
+synthetic,0,5,Purged k-fold (1% embargo),0.441854
+synthetic,0,5,Shuffled k-fold,0.704067
+synthetic,0,5,Contiguous k-fold,0.447614
+synthetic,0,10,Purged k-fold (1% embargo),0.491775
+synthetic,0,10,Shuffled k-fold,0.807865
+synthetic,0,10,Contiguous k-fold,0.480668
+synthetic,0,20,Purged k-fold (1% embargo),0.460895
+synthetic,0,20,Shuffled k-fold,0.849445
+synthetic,0,20,Contiguous k-fold,0.46481
+synthetic,0,40,Purged k-fold (1% embargo),0.465672
+synthetic,0,40,Shuffled k-fold,0.873787
+synthetic,0,40,Contiguous k-fold,0.469115
+synthetic,0,60,Purged k-fold (1% embargo),0.481568
+synthetic,0,60,Shuffled k-fold,0.867842
+synthetic,0,60,Contiguous k-fold,0.50325
+synthetic,1,1,Purged k-fold (1% embargo),0.486077
+synthetic,1,1,Shuffled k-fold,0.501383
+synthetic,1,1,Contiguous k-fold,0.488331
+synthetic,1,5,Purged k-fold (1% embargo),0.492968
+synthetic,1,5,Shuffled k-fold,0.739837
+synthetic,1,5,Contiguous k-fold,0.487344
+synthetic,1,10,Purged k-fold (1% embargo),0.511188
+synthetic,1,10,Shuffled k-fold,0.801964
+synthetic,1,10,Contiguous k-fold,0.503033
+synthetic,1,20,Purged k-fold (1% embargo),0.423693
+synthetic,1,20,Shuffled k-fold,0.830891
+synthetic,1,20,Contiguous k-fold,0.435792
+synthetic,1,40,Purged k-fold (1% embargo),0.410154
+synthetic,1,40,Shuffled k-fold,0.84807
+synthetic,1,40,Contiguous k-fold,0.420884
+synthetic,1,60,Purged k-fold (1% embargo),0.418711
+synthetic,1,60,Shuffled k-fold,0.8595
+synthetic,1,60,Contiguous k-fold,0.421029
+synthetic,2,1,Purged k-fold (1% embargo),0.477807
+synthetic,2,1,Shuffled k-fold,0.472377
+synthetic,2,1,Contiguous k-fold,0.478578
+synthetic,2,5,Purged k-fold (1% embargo),0.51253
+synthetic,2,5,Shuffled k-fold,0.732288
+synthetic,2,5,Contiguous k-fold,0.517591
+synthetic,2,10,Purged k-fold (1% embargo),0.491074
+synthetic,2,10,Shuffled k-fold,0.779262
+synthetic,2,10,Contiguous k-fold,0.476251
+synthetic,2,20,Purged k-fold (1% embargo),0.506385
+synthetic,2,20,Shuffled k-fold,0.840371
+synthetic,2,20,Contiguous k-fold,0.511325
+synthetic,2,40,Purged k-fold (1% embargo),0.609645
+synthetic,2,40,Shuffled k-fold,0.87175
+synthetic,2,40,Contiguous k-fold,0.624002
+synthetic,2,60,Purged k-fold (1% embargo),0.579448
+synthetic,2,60,Shuffled k-fold,0.867675
+synthetic,2,60,Contiguous k-fold,0.592385
+synthetic,3,1,Purged k-fold (1% embargo),0.499516
+synthetic,3,1,Shuffled k-fold,0.507793
+synthetic,3,1,Contiguous k-fold,0.487796
+synthetic,3,5,Purged k-fold (1% embargo),0.493451
+synthetic,3,5,Shuffled k-fold,0.740668
+synthetic,3,5,Contiguous k-fold,0.507203
+synthetic,3,10,Purged k-fold (1% embargo),0.449785
+synthetic,3,10,Shuffled k-fold,0.769943
+synthetic,3,10,Contiguous k-fold,0.461307
+synthetic,3,20,Purged k-fold (1% embargo),0.426483
+synthetic,3,20,Shuffled k-fold,0.820346
+synthetic,3,20,Contiguous k-fold,0.435878
+synthetic,3,40,Purged k-fold (1% embargo),0.477384
+synthetic,3,40,Shuffled k-fold,0.861301
+synthetic,3,40,Contiguous k-fold,0.490929
+synthetic,3,60,Purged k-fold (1% embargo),0.49132
+synthetic,3,60,Shuffled k-fold,0.872244
+synthetic,3,60,Contiguous k-fold,0.494471
+synthetic,4,1,Purged k-fold (1% embargo),0.507696
+synthetic,4,1,Shuffled k-fold,0.515843
+synthetic,4,1,Contiguous k-fold,0.502964
+synthetic,4,5,Purged k-fold (1% embargo),0.485655
+synthetic,4,5,Shuffled k-fold,0.702067
+synthetic,4,5,Contiguous k-fold,0.490782
+synthetic,4,10,Purged k-fold (1% embargo),0.525203
+synthetic,4,10,Shuffled k-fold,0.815889
+synthetic,4,10,Contiguous k-fold,0.526255
+synthetic,4,20,Purged k-fold (1% embargo),0.486574
+synthetic,4,20,Shuffled k-fold,0.839693
+synthetic,4,20,Contiguous k-fold,0.486355
+synthetic,4,40,Purged k-fold (1% embargo),0.527594
+synthetic,4,40,Shuffled k-fold,0.885156
+synthetic,4,40,Contiguous k-fold,0.541372
+synthetic,4,60,Purged k-fold (1% embargo),0.538054
+synthetic,4,60,Shuffled k-fold,0.900303
+synthetic,4,60,Contiguous k-fold,0.532542
+synthetic,5,1,Purged k-fold (1% embargo),0.501858
+synthetic,5,1,Shuffled k-fold,0.505853
+synthetic,5,1,Contiguous k-fold,0.500552
+synthetic,5,5,Purged k-fold (1% embargo),0.491961
+synthetic,5,5,Shuffled k-fold,0.696252
+synthetic,5,5,Contiguous k-fold,0.500159
+synthetic,5,10,Purged k-fold (1% embargo),0.51313
+synthetic,5,10,Shuffled k-fold,0.76778
+synthetic,5,10,Contiguous k-fold,0.519387
+synthetic,5,20,Purged k-fold (1% embargo),0.545784
+synthetic,5,20,Shuffled k-fold,0.784206
+synthetic,5,20,Contiguous k-fold,0.541641
+synthetic,5,40,Purged k-fold (1% embargo),0.491018
+synthetic,5,40,Shuffled k-fold,0.7676
+synthetic,5,40,Contiguous k-fold,0.48082
+synthetic,5,60,Purged k-fold (1% embargo),0.481433
+synthetic,5,60,Shuffled k-fold,0.814794
+synthetic,5,60,Contiguous k-fold,0.497338
+S&P 500,0,1,Purged k-fold (1% embargo),0.51017
+S&P 500,0,1,Shuffled k-fold,0.501571
+S&P 500,0,1,Contiguous k-fold,0.505028
+S&P 500,1,1,Purged k-fold (1% embargo),0.504001
+S&P 500,1,1,Shuffled k-fold,0.494738
+S&P 500,1,1,Contiguous k-fold,0.512643
+S&P 500,2,1,Purged k-fold (1% embargo),0.506614
+S&P 500,2,1,Shuffled k-fold,0.498409
+S&P 500,2,1,Contiguous k-fold,0.501014
+S&P 500,0,5,Purged k-fold (1% embargo),0.5115
+S&P 500,0,5,Shuffled k-fold,0.704293
+S&P 500,0,5,Contiguous k-fold,0.51027
+S&P 500,1,5,Purged k-fold (1% embargo),0.513275
+S&P 500,1,5,Shuffled k-fold,0.703194
+S&P 500,1,5,Contiguous k-fold,0.507887
+S&P 500,2,5,Purged k-fold (1% embargo),0.513039
+S&P 500,2,5,Shuffled k-fold,0.708204
+S&P 500,2,5,Contiguous k-fold,0.506323
+S&P 500,0,10,Purged k-fold (1% embargo),0.497585
+S&P 500,0,10,Shuffled k-fold,0.777963
+S&P 500,0,10,Contiguous k-fold,0.496496
+S&P 500,1,10,Purged k-fold (1% embargo),0.498958
+S&P 500,1,10,Shuffled k-fold,0.770033
+S&P 500,1,10,Contiguous k-fold,0.501612
+S&P 500,2,10,Purged k-fold (1% embargo),0.494039
+S&P 500,2,10,Shuffled k-fold,0.776714
+S&P 500,2,10,Contiguous k-fold,0.497364
+S&P 500,0,20,Purged k-fold (1% embargo),0.435256
+S&P 500,0,20,Shuffled k-fold,0.826781
+S&P 500,0,20,Contiguous k-fold,0.439965
+S&P 500,1,20,Purged k-fold (1% embargo),0.439845
+S&P 500,1,20,Shuffled k-fold,0.822783
+S&P 500,1,20,Contiguous k-fold,0.437983
+S&P 500,2,20,Purged k-fold (1% embargo),0.436748
+S&P 500,2,20,Shuffled k-fold,0.823074
+S&P 500,2,20,Contiguous k-fold,0.442286
+S&P 500,0,40,Purged k-fold (1% embargo),0.404515
+S&P 500,0,40,Shuffled k-fold,0.839067
+S&P 500,0,40,Contiguous k-fold,0.404887
+S&P 500,1,40,Purged k-fold (1% embargo),0.402372
+S&P 500,1,40,Shuffled k-fold,0.842874
+S&P 500,1,40,Contiguous k-fold,0.407277
+S&P 500,2,40,Purged k-fold (1% embargo),0.408734
+S&P 500,2,40,Shuffled k-fold,0.843371
+S&P 500,2,40,Contiguous k-fold,0.405443
+S&P 500,0,60,Purged k-fold (1% embargo),0.441274
+S&P 500,0,60,Shuffled k-fold,0.869506
+S&P 500,0,60,Contiguous k-fold,0.437706
+S&P 500,1,60,Purged k-fold (1% embargo),0.439707
+S&P 500,1,60,Shuffled k-fold,0.869677
+S&P 500,1,60,Contiguous k-fold,0.438919
+S&P 500,2,60,Purged k-fold (1% embargo),0.442074
+S&P 500,2,60,Shuffled k-fold,0.873656
+S&P 500,2,60,Contiguous k-fold,0.433688
