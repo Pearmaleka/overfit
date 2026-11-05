@@ -130,6 +130,19 @@ def bootstrap_performance(
     )
 
 
+def _consistent_centre(bp: BootstrapPerformance) -> FloatArray:
+    """Hansen's (2005) recentring: strategies far below the benchmark are left uncentred.
+
+    A strategy counts as clearly worse than the benchmark when its performance is below
+    ``-sqrt(omega^2 / n * 2 log log n)``; its bootstrap replicates then keep their
+    negative mean and it stops inflating the null distribution of the maximum.
+    """
+    n = bp.n_obs
+    finite_omega = np.where(np.isfinite(bp.omega), bp.omega, 0.0)
+    threshold = np.sqrt(finite_omega**2 / n * 2.0 * np.log(np.log(n)))
+    return np.asarray(np.where(bp.theta >= -threshold, bp.theta, 0.0))
+
+
 def _pvalue(null_draws: FloatArray, observed: float) -> float:
     return float((1 + np.count_nonzero(null_draws >= observed)) / (null_draws.shape[0] + 1))
 
@@ -255,11 +268,9 @@ def spa_test_from(bp: BootstrapPerformance, *, studentize: bool = True) -> SPARe
     scale = bp.omega if studentize else np.ones_like(bp.omega)
     stats = root_n * bp.theta / scale
     statistic = float(max(0.0, stats.max()))
-    finite_omega = np.where(np.isfinite(bp.omega), bp.omega, 0.0)
-    threshold = np.sqrt(finite_omega**2 / n * 2.0 * np.log(np.log(n)))
     centres = {
         "lower": np.maximum(bp.theta, 0.0),
-        "consistent": np.where(bp.theta >= -threshold, bp.theta, 0.0),
+        "consistent": _consistent_centre(bp),
         "upper": bp.theta,
     }
     pvalues = {}
@@ -294,6 +305,7 @@ class StepMResult:
     n_boot: int = 0
     block_size: float = float("nan")
     criterion: str = "mean"
+    recentre: str = "all"
 
     @property
     def n_rejected(self) -> int:
@@ -310,6 +322,7 @@ def romano_wolf(
     block_size: float | None = None,
     bootstrap: BootstrapMethod = "stationary",
     studentize: bool = True,
+    recentre: Literal["all", "consistent"] = "all",
     seed: SeedLike = None,
 ) -> StepMResult:
     """Romano-Wolf step-down test with adjusted p-values.
@@ -320,6 +333,10 @@ def romano_wolf(
     ranked ``j`` and below exceeds it, made monotone in ``j`` (Romano and Wolf, 2016,
     Algorithm 4.1). Rejecting every ``k`` with ``pvalues[k] <= alpha`` controls the
     family-wise error rate at ``alpha`` asymptotically.
+
+    ``recentre="consistent"`` leaves strategies that are clearly worse than the
+    benchmark uncentred, as in Hansen's SPA test. This is the step-wise SPA test of
+    Hsu, Hsu and Kuan (2010); it keeps more power when many poor strategies are included.
     """
     if not 0 < alpha < 1:
         raise ValueError("alpha must be in (0, 1)")
@@ -332,17 +349,24 @@ def romano_wolf(
         bootstrap=bootstrap,
         seed=seed,
     )
-    return romano_wolf_from(bp, alpha=alpha, studentize=studentize)
+    return romano_wolf_from(bp, alpha=alpha, studentize=studentize, recentre=recentre)
 
 
 def romano_wolf_from(
-    bp: BootstrapPerformance, *, alpha: float = 0.05, studentize: bool = True
+    bp: BootstrapPerformance,
+    *,
+    alpha: float = 0.05,
+    studentize: bool = True,
+    recentre: Literal["all", "consistent"] = "all",
 ) -> StepMResult:
     """Romano-Wolf step-down from an existing :class:`BootstrapPerformance`."""
+    if recentre not in ("all", "consistent"):
+        raise ValueError("recentre must be 'all' or 'consistent'")
     root_n = np.sqrt(bp.n_obs)
     scale = bp.omega if studentize else np.ones_like(bp.omega)
     stats = root_n * bp.theta / scale
-    centred = root_n * (bp.theta_star - bp.theta) / scale
+    centre = bp.theta if recentre == "all" else _consistent_centre(bp)
+    centred = root_n * (bp.theta_star - centre) / scale
     order = np.argsort(-stats, kind="stable")
     tail_max = np.maximum.accumulate(centred[:, order][:, ::-1], axis=1)[:, ::-1]
     exceed = np.count_nonzero(tail_max >= stats[order], axis=0)
@@ -358,6 +382,7 @@ def romano_wolf_from(
         n_boot=bp.n_boot,
         block_size=bp.block_size,
         criterion=bp.criterion,
+        recentre=recentre,
     )
 
 

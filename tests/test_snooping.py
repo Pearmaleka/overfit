@@ -79,6 +79,19 @@ def test_romano_wolf_pvalues_are_monotone_in_the_statistic(rng):
     assert rw.n_rejected >= 2
 
 
+def test_stepwise_spa_ignores_clearly_poor_strategies(rng):
+    good = rng.normal(0.0009, 0.01, size=(1260, 1))
+    poor = rng.normal(-0.0027, 0.03, size=(1260, 500))
+    bp = sn.bootstrap_performance(np.hstack([good, poor]), n_boot=999, seed=8)
+    classic = sn.romano_wolf_from(bp)
+    stepspa = sn.romano_wolf_from(bp, recentre="consistent")
+    assert stepspa.recentre == "consistent"
+    assert stepspa.pvalues["0"] < classic.pvalues["0"]
+    assert "0" in stepspa.rejected
+    with pytest.raises(ValueError):
+        sn.romano_wolf_from(bp, recentre="some")  # type: ignore[arg-type]
+
+
 def test_spa_agrees_with_arch_without_studentisation(rng):
     arch_bs = pytest.importorskip("arch.bootstrap")
     x = rng.normal(0.0, 0.01, size=(1000, 15))
