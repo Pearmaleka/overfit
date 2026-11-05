@@ -1,0 +1,80 @@
+{
+  "by_period": [
+    {
+      "period": "1974-1983",
+      "currencies": 9,
+      "significant_spa": 7,
+      "significant_naive": 9,
+      "median_best_sharpe": 1.2074663443845202,
+      "median_rule_sharpe": 0.3318277163311367,
+      "total_step_spa_rules": 326
+    },
+    {
+      "period": "1984-1993",
+      "currencies": 9,
+      "significant_spa": 1,
+      "significant_naive": 9,
+      "median_best_sharpe": 1.0415526114333327,
+      "median_rule_sharpe": 0.1854418351037453,
+      "total_step_spa_rules": 7
+    },
+    {
+      "period": "1994-2003",
+      "currencies": 9,
+      "significant_spa": 0,
+      "significant_naive": 8,
+      "median_best_sharpe": 0.8228403043997342,
+      "median_rule_sharpe": 0.030904947212359368,
+      "total_step_spa_rules": 0
+    },
+    {
+      "period": "2004-2013",
+      "currencies": 10,
+      "significant_spa": 0,
+      "significant_naive": 10,
+      "median_best_sharpe": 0.6507032842028688,
+      "median_rule_sharpe": -0.05086642131807611,
+      "total_step_spa_rules": 0
+    },
+    {
+      "period": "2014-2026",
+      "currencies": 10,
+      "significant_spa": 0,
+      "significant_naive": 10,
+      "median_best_sharpe": 0.6210493324609048,
+      "median_rule_sharpe": -0.020521881516462566,
+      "total_step_spa_rules": 0
+    }
+  ],
+  "persistence_medians": [
+    {
+      "evaluation_period": "1984-1993",
+      "winner_sharpe_selection": 1.2074663443845202,
+      "winner_sharpe_next": 0.4098914586155137,
+      "top_decile_mean_sharpe_next": 0.4600078586946474
+    },
+    {
+      "evaluation_period": "1994-2003",
+      "winner_sharpe_selection": 1.0415526114333327,
+      "winner_sharpe_next": -0.016839225054199585,
+      "top_decile_mean_sharpe_next": 0.11710302764767355
+    },
+    {
+      "evaluation_period": "2004-2013",
+      "winner_sharpe_selection": 0.8228403043997342,
+      "winner_sharpe_next": 0.10660928366716611,
+      "top_decile_mean_sharpe_next": -0.010091142519874557
+    },
+    {
+      "evaluation_period": "2014-2026",
+      "winner_sharpe_selection": 0.6507032842028688,
+      "winner_sharpe_next": -0.1829402806608622,
+      "top_decile_mean_sharpe_next": -0.069518240266497
+    }
+  ],
+  "n_rules": 2902,
+  "cost_per_unit_turnover": 0.00025,
+  "n_boot": 1999,
+  "seed": 11,
+  "seconds": 154.98616308400005
+}
