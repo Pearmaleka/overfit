@@ -5,6 +5,7 @@ Sharpe ratio, the probability of backtest overfitting, White's Reality Check, Ha
 SPA test, the Romano-Wolf step-down procedure and purged cross-validation.
 """
 
+from overfit.bootstrap import bootstrap_counts, bootstrap_indices, optimal_block_length
 from overfit.multitest import adjust_pvalues
 from overfit.sharpe import (
     deflated_sharpe_from_trials,
@@ -23,12 +24,15 @@ __version__ = "0.1.0"
 __all__ = [
     "__version__",
     "adjust_pvalues",
+    "bootstrap_counts",
+    "bootstrap_indices",
     "deflated_sharpe_from_trials",
     "deflated_sharpe_ratio",
     "describe",
     "expected_max_sharpe",
     "haircut_sharpe_ratio",
     "min_track_record_length",
+    "optimal_block_length",
     "probabilistic_sharpe_ratio",
     "sharpe_ratio",
     "sharpe_ratio_se",
