@@ -156,8 +156,8 @@ CSCV with 10 blocks (252 train/test splits) on 100 strategies, 100 replications.
 | one strategy with annual Sharpe 1.5 | 0.16 | 0.02 to 0.32 | 0.18 |
 <!-- /table -->
 
-With no skill the in-sample winner is a random draw out of sample, and PBO is 0.5 on
-average, but a single sample can give anything from 0.30 to 0.72. PBO is a noisy statistic
+With no skill the in-sample winner is a random draw out of sample and PBO is 0.5 on
+average, but the middle 80% of samples range from 0.30 to 0.72. PBO is a noisy statistic
 and should be read alongside the tests above.
 
 ## 2. Technical trading rules on the S&P 500 and the NASDAQ Composite, 2000-2018
@@ -308,8 +308,7 @@ In 1974-1983, the first decade of floating exchange rates, the best rule survive
 correction for 7 of 9 currencies, step-SPA finds 326 individually significant rules, and
 even the median rule earned a Sharpe ratio of 0.33. One currency (the yen) survives in
 1984-1993 and none after 1993. A naive test of the best rule would have reported a
-significant strategy in 46 of the 47 currency-decades, including every one of the last
-twenty years. Winners did not carry over either: the previous decade's best rule earned a
+significant strategy in 46 of the 47 currency-decades, including all 20 since 2004. Winners did not carry over either: the previous decade's best rule earned a
 median Sharpe ratio of 0.41 in 1984-1993, and -0.02, 0.11 and -0.18 in the three decades
 after.
 

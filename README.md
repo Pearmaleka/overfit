@@ -78,8 +78,7 @@ overfit audit backtests.csv --benchmark SPY
 | Probability of backtest overfitting (CSCV) | 0.498 |
 | P(in-sample winner loses out of sample) | 0.610 |
 
-Verdict: Significant on its own, but not after accounting for the trials:
-consistent with selection luck.
+**Verdict:** Significant on its own, but not after accounting for the trials: consistent with selection luck.
 ```
 
 Each check is also available on its own:
@@ -156,8 +155,8 @@ is 0.00.
 ### Currency trading rules, 1974-2026
 
 The same rules, long/short, on ten currencies against the US dollar. A naive test calls the
-best rule significant in 46 of 47 currency-decades. The SPA test agrees only for the 1970s
-and, for the yen, the 1980s.
+best rule significant in 46 of 47 currency-decades. The SPA test agrees for 7 of 9
+currencies in 1974-1983, for the yen in 1984-1993, and for none since.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/figures/fx-spa-heatmap-dark.png">
@@ -170,7 +169,8 @@ A random forest predicts the sign of the next h-day return from trailing returns
 volatility. When labels overlap, shuffled k-fold puts nearly identical neighbours on both
 sides of the split, and the model scores well by remembering them. On noise it reports an
 AUC of 0.83 at h = 20 and 0.86 at h = 60; on the S&P 500 it reports 0.82 and 0.87, while a
-chronological hold-out gives 0.46 and 0.45. Purged k-fold agrees with the hold-out.
+chronological hold-out gives 0.46 and 0.45. Purged k-fold gives 0.44 at both horizons,
+close to the hold-out.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/figures/cv-leakage-dark.png">
