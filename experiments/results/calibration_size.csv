@@ -1,0 +1,29 @@
+n_strategies,method,rate,reps
+1,Naive (best p-value),0.0375,400
+1,Bonferroni,0.0375,400
+1,Benjamini-Hochberg,0.0375,400
+1,Reality Check,0.0375,400
+1,Hansen SPA,0.0375,400
+1,Romano-Wolf,0.0375,400
+1,Deflated Sharpe,0.04,400
+10,Naive (best p-value),0.2975,400
+10,Bonferroni,0.0375,400
+10,Benjamini-Hochberg,0.04,400
+10,Reality Check,0.045,400
+10,Hansen SPA,0.045,400
+10,Romano-Wolf,0.045,400
+10,Deflated Sharpe,0.005,400
+100,Naive (best p-value),0.74,400
+100,Bonferroni,0.04,400
+100,Benjamini-Hochberg,0.045,400
+100,Reality Check,0.05,400
+100,Hansen SPA,0.05,400
+100,Romano-Wolf,0.05,400
+100,Deflated Sharpe,0.0075,400
+1000,Naive (best p-value),0.9775,400
+1000,Bonferroni,0.0325,400
+1000,Benjamini-Hochberg,0.0325,400
+1000,Reality Check,0.03,400
+1000,Hansen SPA,0.0425,400
+1000,Romano-Wolf,0.0425,400
+1000,Deflated Sharpe,0.005,400

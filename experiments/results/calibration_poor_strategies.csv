@@ -1,0 +1,33 @@
+scenario,poor_sharpe,n_poor,method,power,reps
+clearly poor,-1.5,0,Reality Check,0.936667,300
+clearly poor,-1.5,0,Hansen SPA,0.936667,300
+clearly poor,-1.5,0,Romano-Wolf,0.936667,300
+clearly poor,-1.5,0,Step-SPA,0.936667,300
+clearly poor,-1.5,10,Reality Check,0,300
+clearly poor,-1.5,10,Hansen SPA,0.92,300
+clearly poor,-1.5,10,Romano-Wolf,0.776667,300
+clearly poor,-1.5,10,Step-SPA,0.92,300
+clearly poor,-1.5,100,Reality Check,0,300
+clearly poor,-1.5,100,Hansen SPA,0.896667,300
+clearly poor,-1.5,100,Romano-Wolf,0.58,300
+clearly poor,-1.5,100,Step-SPA,0.896667,300
+clearly poor,-1.5,1000,Reality Check,0,300
+clearly poor,-1.5,1000,Hansen SPA,0.646667,300
+clearly poor,-1.5,1000,Romano-Wolf,0.373333,300
+clearly poor,-1.5,1000,Step-SPA,0.646667,300
+mediocre,-0.3,0,Reality Check,0.976667,300
+mediocre,-0.3,0,Hansen SPA,0.976667,300
+mediocre,-0.3,0,Romano-Wolf,0.976667,300
+mediocre,-0.3,0,Step-SPA,0.976667,300
+mediocre,-0.3,10,Reality Check,0.00333333,300
+mediocre,-0.3,10,Hansen SPA,0.846667,300
+mediocre,-0.3,10,Romano-Wolf,0.83,300
+mediocre,-0.3,10,Step-SPA,0.846667,300
+mediocre,-0.3,100,Reality Check,0.00333333,300
+mediocre,-0.3,100,Hansen SPA,0.596667,300
+mediocre,-0.3,100,Romano-Wolf,0.586667,300
+mediocre,-0.3,100,Step-SPA,0.596667,300
+mediocre,-0.3,1000,Reality Check,0,300
+mediocre,-0.3,1000,Hansen SPA,0.396667,300
+mediocre,-0.3,1000,Romano-Wolf,0.39,300
+mediocre,-0.3,1000,Step-SPA,0.396667,300

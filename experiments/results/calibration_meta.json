@@ -1,0 +1,15 @@
+{
+  "seed": 20261105,
+  "quick": false,
+  "n_obs": 1260,
+  "annual_volatility": 0.15,
+  "dgp": "t(5) shocks, common GARCH(1,1) (a=0.06, b=0.92), pairwise correlation 0.3",
+  "alpha": 0.05,
+  "seconds": {
+    "expected_max": 41.2527928049999,
+    "size": 265.17208454599995,
+    "power": 476.27316290299996,
+    "poor": 762.2884105149997,
+    "pbo": 765.088053811
+  }
+}

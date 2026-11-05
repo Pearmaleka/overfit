@@ -1,0 +1,43 @@
+true_sharpe,method,reject,found_skilled,reps
+0,Naive (best p-value),0.79,0.005,400
+0,Bonferroni,0.035,0,400
+0,Benjamini-Hochberg,0.04,0,400
+0,Reality Check,0.045,0,400
+0,Hansen SPA,0.05,0,400
+0,Romano-Wolf,0.05,0,400
+0,Deflated Sharpe,0.01,0,400
+0.5,Naive (best p-value),0.75,0.115,400
+0.5,Bonferroni,0.0675,0.0225,400
+0.5,Benjamini-Hochberg,0.0775,0.035,400
+0.5,Reality Check,0.0725,0.0225,400
+0.5,Hansen SPA,0.0775,0.0225,400
+0.5,Romano-Wolf,0.0775,0.0275,400
+0.5,Deflated Sharpe,0.01,0.0025,400
+1,Naive (best p-value),0.915,0.5825,400
+1,Bonferroni,0.1875,0.175,400
+1,Benjamini-Hochberg,0.1975,0.185,400
+1,Reality Check,0.2025,0.175,400
+1,Hansen SPA,0.2175,0.1925,400
+1,Romano-Wolf,0.2175,0.2,400
+1,Deflated Sharpe,0.0625,0.0575,400
+1.5,Naive (best p-value),0.965,0.8925,400
+1.5,Bonferroni,0.6175,0.615,400
+1.5,Benjamini-Hochberg,0.6175,0.615,400
+1.5,Reality Check,0.6125,0.6,400
+1.5,Hansen SPA,0.6225,0.6075,400
+1.5,Romano-Wolf,0.6225,0.6175,400
+1.5,Deflated Sharpe,0.32,0.315,400
+2,Naive (best p-value),0.995,0.99,400
+2,Bonferroni,0.8675,0.8675,400
+2,Benjamini-Hochberg,0.8675,0.8675,400
+2,Reality Check,0.88,0.88,400
+2,Hansen SPA,0.89,0.89,400
+2,Romano-Wolf,0.89,0.89,400
+2,Deflated Sharpe,0.6825,0.6825,400
+2.5,Naive (best p-value),1,0.995,400
+2.5,Bonferroni,0.97,0.97,400
+2.5,Benjamini-Hochberg,0.97,0.97,400
+2.5,Reality Check,0.975,0.975,400
+2.5,Hansen SPA,0.975,0.975,400
+2.5,Romano-Wolf,0.975,0.975,400
+2.5,Deflated Sharpe,0.915,0.9125,400
