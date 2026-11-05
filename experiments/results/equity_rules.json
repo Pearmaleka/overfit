@@ -1,0 +1,249 @@
+{
+  "sp500": {
+    "index": "S&P 500",
+    "n_rules": 2902,
+    "start": "2000-01-14",
+    "end": "2018-12-31",
+    "n_days": 4770,
+    "cost_per_unit_turnover": 0.0005,
+    "buy_and_hold": {
+      "annual_return": 0.029356918911329632,
+      "annual_volatility": 0.1912938170974263,
+      "sharpe": 0.24696653973397156,
+      "max_drawdown": 0.567753877503056
+    },
+    "tests_sharpe": {
+      "criterion": "sharpe",
+      "block_size": 8.30117277846734,
+      "best_rule": "brk:n=5,m=2,b=0.04",
+      "best_difference": 0.02453694451307075,
+      "pvalue_naive": 0.0105,
+      "share_rules_naive_p05": 0.015161957270847692,
+      "pvalue_reality_check": 0.824,
+      "pvalue_spa_lower": 0.4965,
+      "pvalue_spa": 0.6485,
+      "pvalue_spa_upper": 0.6775,
+      "n_romano_wolf": 0,
+      "n_step_spa": 0,
+      "romano_wolf_rejected": []
+    },
+    "tests_mean": {
+      "criterion": "mean",
+      "block_size": 8.30117277846734,
+      "best_rule": "rsirev:n=28,lo=30,hi=70",
+      "best_difference": 0.00016873301218176443,
+      "pvalue_naive": 0.0585,
+      "share_rules_naive_p05": 0.0010337698139214334,
+      "pvalue_reality_check": 0.6685,
+      "pvalue_spa_lower": 0.678,
+      "pvalue_spa": 0.821,
+      "pvalue_spa_upper": 0.843,
+      "n_romano_wolf": 0,
+      "n_step_spa": 0,
+      "romano_wolf_rejected": []
+    },
+    "tests_sharpe_block20": {
+      "criterion": "sharpe",
+      "block_size": 20.0,
+      "best_rule": "brk:n=5,m=2,b=0.04",
+      "best_difference": 0.02453694451307075,
+      "pvalue_naive": 0.006,
+      "share_rules_naive_p05": 0.02722260509993108,
+      "pvalue_reality_check": 0.8125,
+      "pvalue_spa_lower": 0.409,
+      "pvalue_spa": 0.548,
+      "pvalue_spa_upper": 0.588,
+      "n_romano_wolf": 0,
+      "n_step_spa": 0,
+      "romano_wolf_rejected": []
+    },
+    "tests_sharpe_no_costs": {
+      "criterion": "sharpe",
+      "block_size": 2.3011683371423377,
+      "best_rule": "brk:n=5,m=2,b=0.04",
+      "best_difference": 0.024664063732347988,
+      "pvalue_naive": 0.009,
+      "share_rules_naive_p05": 0.039283252929014474,
+      "pvalue_reality_check": 0.8435,
+      "pvalue_spa_lower": 0.3075,
+      "pvalue_spa": 0.4375,
+      "pvalue_spa_upper": 0.45,
+      "n_romano_wolf": 0,
+      "n_step_spa": 0,
+      "romano_wolf_rejected": []
+    },
+    "best_rule": {
+      "name": "brk:n=5,m=2,b=0.04",
+      "annual_return": 0.07813947386868025,
+      "annual_volatility": 0.1319125934813186,
+      "sharpe": 0.6364376269421194,
+      "max_drawdown": 0.23834547312092025,
+      "time_in_market": 0.774261161182142,
+      "trades_per_year": 0.5281911548941521
+    },
+    "deflated_sharpe": {
+      "rule": "rsirev:n=28,lo=30,hi=70",
+      "excess_sharpe": 0.39322610399902796,
+      "psr": 0.9589376042363198,
+      "n_trials": 2902,
+      "n_trials_effective": 212.0000000013001,
+      "expected_max_excess_sharpe": 0.615904973760295,
+      "dsr": 0.16243890651599824,
+      "dsr_effective": 0.3448298313956204
+    },
+    "pbo": {
+      "pbo": 0.4541569541569542,
+      "n_combinations": 12870,
+      "prob_oos_loss": 0.1257964257964258,
+      "degradation_slope": -0.2054000608704763,
+      "degradation_intercept": 0.022156637499056733,
+      "median_logit": 0.16017625916771644
+    },
+    "split_sample": {
+      "in_sample": [
+        "2000-01-14",
+        "2009-12-31"
+      ],
+      "out_of_sample": [
+        "2010-01-04",
+        "2018-12-31"
+      ],
+      "winner": "rsirev:n=10,lo=10,hi=60",
+      "winner_is_sharpe": 0.6784612114866588,
+      "winner_oos_sharpe": 0.0,
+      "winner_oos_percentile": 0.0983804272915231,
+      "buy_and_hold_is_sharpe": -0.00783401606057242,
+      "buy_and_hold_oos_sharpe": 0.6762392074663537,
+      "share_rules_beating_bh_is": 0.6354238456237078,
+      "share_rules_beating_bh_oos": 0.052033080634045485,
+      "top_decile_mean_oos_sharpe": 0.44136022600820846,
+      "all_rules_mean_oos_sharpe": 0.3527820039773137,
+      "spearman_is_oos": 0.31002464674827385
+    }
+  },
+  "nasdaq": {
+    "index": "NASDAQ Composite",
+    "n_rules": 2902,
+    "start": "2000-01-14",
+    "end": "2018-12-31",
+    "n_days": 4770,
+    "cost_per_unit_turnover": 0.0005,
+    "buy_and_hold": {
+      "annual_return": 0.02768211910313889,
+      "annual_volatility": 0.25099410623675217,
+      "sharpe": 0.23411350130627467,
+      "max_drawdown": 0.7793238629207799
+    },
+    "tests_sharpe": {
+      "criterion": "sharpe",
+      "block_size": 10.693047394685891,
+      "best_rule": "bbrev:n=10,k=2,e=-1",
+      "best_difference": 0.029679870618124528,
+      "pvalue_naive": 0.0225,
+      "share_rules_naive_p05": 0.008270158511371467,
+      "pvalue_reality_check": 0.6325,
+      "pvalue_spa_lower": 0.6395,
+      "pvalue_spa": 0.817,
+      "pvalue_spa_upper": 0.832,
+      "n_romano_wolf": 0,
+      "n_step_spa": 0,
+      "romano_wolf_rejected": []
+    },
+    "tests_mean": {
+      "criterion": "mean",
+      "block_size": 10.693047394685891,
+      "best_rule": "rsirev:n=28,lo=30,hi=75",
+      "best_difference": 0.00017970618086317257,
+      "pvalue_naive": 0.08,
+      "share_rules_naive_p05": 0.0,
+      "pvalue_reality_check": 0.793,
+      "pvalue_spa_lower": 0.7455,
+      "pvalue_spa": 0.9145,
+      "pvalue_spa_upper": 0.9315,
+      "n_romano_wolf": 0,
+      "n_step_spa": 0,
+      "romano_wolf_rejected": []
+    },
+    "tests_sharpe_block20": {
+      "criterion": "sharpe",
+      "block_size": 20.0,
+      "best_rule": "bbrev:n=10,k=2,e=-1",
+      "best_difference": 0.029679870618124528,
+      "pvalue_naive": 0.024,
+      "share_rules_naive_p05": 0.009993108201240523,
+      "pvalue_reality_check": 0.6105,
+      "pvalue_spa_lower": 0.565,
+      "pvalue_spa": 0.749,
+      "pvalue_spa_upper": 0.7695,
+      "n_romano_wolf": 0,
+      "n_step_spa": 0,
+      "romano_wolf_rejected": []
+    },
+    "tests_sharpe_no_costs": {
+      "criterion": "sharpe",
+      "block_size": 3.1571221440270016,
+      "best_rule": "bbrev:n=10,k=2,e=-1",
+      "best_difference": 0.034442385845903735,
+      "pvalue_naive": 0.0115,
+      "share_rules_naive_p05": 0.012749827705031013,
+      "pvalue_reality_check": 0.5035,
+      "pvalue_spa_lower": 0.6005,
+      "pvalue_spa": 0.75,
+      "pvalue_spa_upper": 0.754,
+      "n_romano_wolf": 0,
+      "n_step_spa": 0,
+      "romano_wolf_rejected": []
+    },
+    "best_rule": {
+      "name": "bbrev:n=10,k=2,e=-1",
+      "annual_return": 0.06908884294604256,
+      "annual_volatility": 0.10205653794044953,
+      "sharpe": 0.7052174511758452,
+      "max_drawdown": 0.12727999589184535,
+      "time_in_market": 0.09872144204569272,
+      "trades_per_year": 15.423181722909243
+    },
+    "deflated_sharpe": {
+      "rule": "rsirev:n=28,lo=30,hi=75",
+      "excess_sharpe": 0.30310816369845817,
+      "psr": 0.9043033902037885,
+      "n_trials": 2902,
+      "n_trials_effective": 204.99999999940005,
+      "expected_max_excess_sharpe": 0.48722403465000785,
+      "dsr": 0.2137189865300509,
+      "dsr_effective": 0.36850706725226295
+    },
+    "pbo": {
+      "pbo": 0.26262626262626265,
+      "n_combinations": 12870,
+      "prob_oos_loss": 0.06161616161616162,
+      "degradation_slope": -0.6313863442213273,
+      "degradation_intercept": 0.056324331725469814,
+      "median_logit": 0.9484636229244578
+    },
+    "split_sample": {
+      "in_sample": [
+        "2000-01-14",
+        "2009-12-31"
+      ],
+      "out_of_sample": [
+        "2010-01-04",
+        "2018-12-31"
+      ],
+      "winner": "bbrev:n=10,k=2,e=-1",
+      "winner_is_sharpe": 0.9229899117399859,
+      "winner_oos_sharpe": 0.37765930208160137,
+      "winner_oos_percentile": 0.33838731909028263,
+      "buy_and_hold_is_sharpe": -0.031016616912092065,
+      "buy_and_hold_oos_sharpe": 0.7806959855167728,
+      "share_rules_beating_bh_is": 0.7198483804272915,
+      "share_rules_beating_bh_oos": 0.026188835286009647,
+      "top_decile_mean_oos_sharpe": 0.42917117471381927,
+      "all_rules_mean_oos_sharpe": 0.43118059864738373,
+      "spearman_is_oos": 0.05868699761121817
+    }
+  },
+  "seconds": 52.00033163099988,
+  "n_boot": 1999,
+  "seed": 7
+}

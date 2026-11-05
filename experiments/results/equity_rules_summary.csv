@@ -1,0 +1,3 @@
+index,rules,buy_and_hold_sharpe,best_rule,best_rule_sharpe,pvalue_naive,pvalue_reality_check,pvalue_spa,romano_wolf_rejections,step_spa_rejections,dsr_effective,pbo,winner_is_sharpe,winner_oos_sharpe,buy_and_hold_oos_sharpe
+S&P 500,2902,0.246967,"brk:n=5,m=2,b=0.04",0.636438,0.0105,0.824,0.6485,0,0,0.34483,0.454157,0.678461,0,0.676239
+NASDAQ Composite,2902,0.234114,"bbrev:n=10,k=2,e=-1",0.705217,0.0225,0.6325,0.817,0,0,0.368507,0.262626,0.92299,0.377659,0.780696
