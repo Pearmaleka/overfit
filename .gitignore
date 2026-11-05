@@ -26,3 +26,6 @@ Thumbs.db
 # Local data cache used by the experiment scripts
 .cache/
 experiments/.cache/
+
+# Reduced experiment runs (python experiments/<script>.py --quick)
+experiments/results/*-quick.*
