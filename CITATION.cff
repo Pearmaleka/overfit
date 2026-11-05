@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "overfit: statistical tests for backtest overfitting and data snooping"
+type: software
+authors:
+  - family-names: "Le"
+    given-names: "Nam Khanh"
+version: 0.1.0
+date-released: "2026-11-05"
+license: MIT
+repository-code: "https://github.com/Pearmaleka/clone"
+keywords:
+  - backtesting
+  - data snooping
+  - multiple testing
+  - deflated Sharpe ratio
+  - cross-validation
