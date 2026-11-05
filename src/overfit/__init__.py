@@ -9,6 +9,7 @@ from overfit.bootstrap import bootstrap_counts, bootstrap_indices, optimal_block
 from overfit.cv import CombinatorialPurgedKFold, PurgedKFold, label_times
 from overfit.multitest import adjust_pvalues
 from overfit.pbo import PBOResult, pbo, probability_of_backtest_overfitting
+from overfit.report import AuditReport, audit
 from overfit.sharpe import (
     deflated_sharpe_from_trials,
     deflated_sharpe_ratio,
@@ -32,11 +33,13 @@ from overfit.trials import effective_number_of_trials
 __version__ = "0.1.0"
 
 __all__ = [
+    "AuditReport",
     "CombinatorialPurgedKFold",
     "PBOResult",
     "PurgedKFold",
     "__version__",
     "adjust_pvalues",
+    "audit",
     "bootstrap_counts",
     "bootstrap_indices",
     "bootstrap_performance",
