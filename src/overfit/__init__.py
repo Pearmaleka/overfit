@@ -7,6 +7,7 @@ SPA test, the Romano-Wolf step-down procedure and purged cross-validation.
 
 from overfit.bootstrap import bootstrap_counts, bootstrap_indices, optimal_block_length
 from overfit.multitest import adjust_pvalues
+from overfit.pbo import PBOResult, pbo, probability_of_backtest_overfitting
 from overfit.sharpe import (
     deflated_sharpe_from_trials,
     deflated_sharpe_ratio,
@@ -25,10 +26,12 @@ from overfit.snooping import (
     romano_wolf,
     spa_test,
 )
+from overfit.trials import effective_number_of_trials
 
 __version__ = "0.1.0"
 
 __all__ = [
+    "PBOResult",
     "__version__",
     "adjust_pvalues",
     "bootstrap_counts",
@@ -37,12 +40,15 @@ __all__ = [
     "deflated_sharpe_from_trials",
     "deflated_sharpe_ratio",
     "describe",
+    "effective_number_of_trials",
     "expected_max_sharpe",
     "haircut_sharpe_ratio",
     "individual_pvalues",
     "min_track_record_length",
     "optimal_block_length",
+    "pbo",
     "probabilistic_sharpe_ratio",
+    "probability_of_backtest_overfitting",
     "reality_check",
     "romano_wolf",
     "sharpe_ratio",
