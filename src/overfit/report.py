@@ -86,7 +86,7 @@ class AuditReport:
         def fmt(v: float | None, digits: int = 3) -> str:
             return "n/a" if v is None or not np.isfinite(v) else f"{v:.{digits}f}"
 
-        pct = f"{100 * (1 - self.alpha):.0f}%"
+        level = f"{100 * self.alpha:g}%"
         sharpe_label = (
             "Annualised Sharpe ratio"
             if self.benchmark == "zero"
@@ -110,7 +110,7 @@ class AuditReport:
             ),
             ("White Reality Check p-value", fmt(self.pvalue_reality_check)),
             ("Hansen SPA p-value (consistent)", fmt(self.pvalue_spa)),
-            (f"Romano-Wolf: strategies significant at {pct}", str(self.n_romano_wolf)),
+            (f"Strategies significant after Romano-Wolf ({level} FWER)", str(self.n_romano_wolf)),
             ("Probability of backtest overfitting (CSCV)", fmt(self.pbo)),
             ("P(in-sample winner loses out of sample)", fmt(self.pbo_prob_oos_loss)),
         ]
