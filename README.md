@@ -228,6 +228,11 @@ examples/             executed quickstart notebook
 - The trading studies use a flat cost per trade and ignore dividends (equities) and
   interest-rate carry (currencies).
 
+## Contributing
+
+Issues and pull requests are welcome. [CONTRIBUTING.md](CONTRIBUTING.md) explains the
+setup, the checks CI runs and the conventions for adding methods and results.
+
 ## License
 
 MIT. See [LICENSE](LICENSE).

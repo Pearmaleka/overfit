@@ -1,0 +1,31 @@
+name: Bug report
+description: Something computes the wrong number, crashes or behaves unexpectedly
+labels: ["bug"]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you ran, what you expected and what you got instead.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Minimal example
+      description: A short snippet that reproduces the problem, with a fixed seed if randomness is involved.
+      render: python
+    validations:
+      required: true
+  - type: textarea
+    id: reference
+    attributes:
+      label: Reference value
+      description: If the result is numerically wrong, where does the correct value come from (paper, another library, a derivation)?
+  - type: input
+    id: versions
+    attributes:
+      label: Versions
+      description: Output of `python -c "import overfit, numpy, scipy, pandas; print(overfit.__version__, numpy.__version__, scipy.__version__, pandas.__version__)"`
+    validations:
+      required: true
