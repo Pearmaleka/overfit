@@ -2,7 +2,7 @@
 
 **Is the best of your backtests skill or luck?**
 
-[![CI](https://github.com/Pearmaleka/clone/actions/workflows/ci.yml/badge.svg)](https://github.com/Pearmaleka/clone/actions/workflows/ci.yml)
+[![CI](https://github.com/Pearmaleka/overfit/actions/workflows/ci.yml/badge.svg)](https://github.com/Pearmaleka/overfit/actions/workflows/ci.yml)
 ![Python 3.10-3.13](https://img.shields.io/badge/python-3.10%E2%80%933.13-blue)
 ![License: MIT](https://img.shields.io/badge/license-MIT-green)
 
@@ -36,7 +36,7 @@ The repository also contains four studies that use the library:
 ## Install
 
 ```bash
-pip install "backtest-overfit @ git+https://github.com/Pearmaleka/clone"
+pip install "backtest-overfit @ git+https://github.com/Pearmaleka/overfit"
 ```
 
 The package is imported as `overfit` and needs only NumPy, SciPy and pandas. Add the
@@ -195,7 +195,7 @@ close to the hold-out.
 ## Reproduce
 
 ```bash
-git clone https://github.com/Pearmaleka/clone overfit && cd overfit
+git clone https://github.com/Pearmaleka/overfit && cd overfit
 pip install -e ".[dev]"
 pytest                                  # unit, property and Monte Carlo tests
 python experiments/equity_rules.py      # about 1 minute
