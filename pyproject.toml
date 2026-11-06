@@ -52,7 +52,7 @@ dev = [
 overfit = "overfit.cli:main"
 
 [project.urls]
-Repository = "https://github.com/Pearmaleka/clone"
+Repository = "https://github.com/Pearmaleka/overfit"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/overfit"]
