@@ -138,7 +138,17 @@ the $\lfloor h n \rfloor$ samples that start right after the fold (embargo $h$).
 `CombinatorialPurgedKFold` divides the sample into $N$ groups and tests on each of the
 $\binom{N}{k}$ combinations of $k$ groups. Each group is tested
 $\binom{N-1}{k-1}$ times; `paths()` assigns those test predictions to
-$\binom{N-1}{k-1}$ complete out-of-sample paths.
+$\binom{N-1}{k-1}$ complete out-of-sample paths, and `backtest_paths()` stitches the
+per-split predictions into an array with one row per path:
+
+```python
+cv = CombinatorialPurgedKFold(6, 2, t1=label_times(len(X), horizon=20), embargo=0.01)
+preds = [model.fit(X[train], y[train]).predict(X[test]) for train, test in cv.split()]
+paths = cv.backtest_paths(preds)  # shape (5, len(X)): five out-of-sample backtests
+```
+
+A strategy evaluated on every row gives a distribution of out-of-sample Sharpe ratios
+rather than the single number a walk-forward test produces.
 
 ## References
 
