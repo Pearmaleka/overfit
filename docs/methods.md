@@ -63,6 +63,21 @@ Galwey (2009) $(\sum_i \sqrt{\lambda_i})^2 / \sum_i \lambda_i$.
 $t = \widehat{SR}\sqrt n$, adjust its one-sided p-value for $N$ tests (Bonferroni or
 Sidak), and map the adjusted p-value back to a Sharpe ratio.
 
+**Minimum backtest length** (Bailey, Borwein, Lopez de Prado and Zhu, 2014). Over $y$
+years, the annualised Sharpe ratio estimate of a strategy without skill has a standard
+deviation of about $1/\sqrt{y}$, so the best of $N$ independent trials is expected to
+reach $E[\max_N]/\sqrt{y}$, where $E[\max_N]$ is the expected maximum of $N$ standard
+normals. `min_backtest_length` solves for the number of years at which this equals a
+target annual Sharpe ratio $\overline{SR}$:
+
+$$
+\text{MinBTL} = \left(\frac{E[\max_N]}{\overline{SR}}\right)^2 < \frac{2 \ln N}{\overline{SR}^2}.
+$$
+
+With 45 trials, a Sharpe ratio of 1 needs about five years of data before it is more
+than the search alone would produce, which is the paper's example. `audit` reports the
+MinBTL for the best strategy's Sharpe ratio and the effective number of trials.
+
 ## 3. Data-snooping tests
 
 All three tests share one bootstrap. `bootstrap_performance` draws $B$ resamples of the
@@ -144,6 +159,7 @@ $\binom{N-1}{k-1}$ complete out-of-sample paths.
 
 - Bailey, D. H., Borwein, J., Lopez de Prado, M. and Zhu, Q. J. (2017). The probability of backtest overfitting. *Journal of Computational Finance* 20(4), 39-69.
 - Bailey, D. H. and Lopez de Prado, M. (2012). The Sharpe ratio efficient frontier. *Journal of Risk* 15(2), 3-44.
+- Bailey, D. H., Borwein, J., Lopez de Prado, M. and Zhu, Q. J. (2014). Pseudo-mathematics and financial charlatanism: the effects of backtest overfitting on out-of-sample performance. *Notices of the American Mathematical Society* 61(5), 458-471.
 - Bailey, D. H. and Lopez de Prado, M. (2014). The deflated Sharpe ratio: correcting for selection bias, backtest overfitting and non-normality. *Journal of Portfolio Management* 40(5), 94-107.
 - Galwey, N. W. (2009). A new measure of the effective number of tests. *Genetic Epidemiology* 33(7), 559-568.
 - Hansen, P. R. (2005). A test for superior predictive ability. *Journal of Business & Economic Statistics* 23(4), 365-380.

@@ -17,6 +17,7 @@ from overfit.sharpe import (
     describe,
     expected_max_sharpe,
     haircut_sharpe_ratio,
+    min_backtest_length,
     sharpe_ratio,
 )
 from overfit.snooping import (
@@ -44,6 +45,7 @@ class AuditReport:
     n_trials: float
     n_trials_effective: float
     expected_max_sharpe: float
+    min_backtest_years: float
     dsr: float
     dsr_effective: float
     sharpe_haircut: float
@@ -98,6 +100,13 @@ class AuditReport:
             ("Naive one-sided p-value", fmt(self.pvalue_naive, 4)),
             ("Trials (effective)", f"{self.n_trials:.0f} ({self.n_trials_effective:.1f})"),
             ("Expected best Sharpe under no skill", fmt(self.expected_max_sharpe, 2)),
+            (
+                "Minimum backtest length for this Sharpe and the effective trials",
+                f"{self.min_backtest_years:.1f} years (sample: "
+                f"{self.n_obs / self.periods_per_year:.1f} years)"
+                if np.isfinite(self.min_backtest_years)
+                else "n/a (Sharpe ratio not positive)",
+            ),
             (
                 f"Deflated Sharpe ratio (pass if >= {1 - self.alpha:.2f})",
                 f"{fmt(self.dsr)} ({fmt(self.dsr_effective)} with effective trials)",
@@ -231,6 +240,7 @@ def audit(
         n_trials=n_tried,
         n_trials_effective=float(n_eff),
         expected_max_sharpe=sr0 * root,
+        min_backtest_years=min_backtest_length(max(n_eff, 1.0), stats.sr * root),
         dsr=dsr,
         dsr_effective=dsr_eff,
         sharpe_haircut=hc.sr_haircut * root,
