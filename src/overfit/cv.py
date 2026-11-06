@@ -202,3 +202,45 @@ class CombinatorialPurgedKFold:
                 out[seen[g], g] = split_id
                 seen[g] += 1
         return out
+
+    def backtest_paths(self, predictions: Sequence[ArrayLike]) -> NDArray[np.float64]:
+        """Stitch out-of-sample predictions into complete backtest paths.
+
+        Parameters
+        ----------
+        predictions
+            One array per split, in the order of :meth:`split`. ``predictions[s]``
+            holds the out-of-sample values (predictions, positions or strategy
+            returns) for the test samples of split ``s``, in the order :meth:`split`
+            yields them.
+
+        Returns
+        -------
+        Array of shape ``(n_paths, n_samples)``. Row ``p`` covers every sample exactly
+        once: group ``g`` comes from split ``paths()[p, g]``. Evaluating a strategy on
+        each row gives ``n_paths`` out-of-sample backtests instead of one.
+        """
+        n_splits = self.get_n_splits()
+        if len(predictions) != n_splits:
+            raise ValueError(f"expected {n_splits} prediction arrays, got {len(predictions)}")
+        parts = self.groups()
+        sizes = [len(part) for part in parts]
+        by_split: list[dict[int, NDArray[np.float64]]] = []
+        for split_id, (combo, values) in enumerate(
+            zip(self.test_groups(), predictions, strict=True)
+        ):
+            arr = np.asarray(values, dtype=float)
+            expected = sum(sizes[g] for g in combo)
+            if arr.ndim != 1 or arr.shape[0] != expected:
+                raise ValueError(
+                    f"predictions[{split_id}] must be one-dimensional with {expected} values "
+                    f"(the test samples of split {split_id}), got shape {arr.shape}"
+                )
+            bounds = np.cumsum([0] + [sizes[g] for g in combo])
+            by_split.append({g: arr[bounds[i] : bounds[i + 1]] for i, g in enumerate(combo)})
+        assignment = self.paths()
+        out = np.empty((self.n_paths, self.n_samples))
+        for p in range(self.n_paths):
+            for g, part in enumerate(parts):
+                out[p, part] = by_split[assignment[p, g]][g]
+        return out
