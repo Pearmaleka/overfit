@@ -10,6 +10,8 @@ Lo (2002), "The Statistics of Sharpe Ratios", Financial Analysts Journal.
 Mertens (2002), "Comments on variance of the IID estimator in Lo (2002)".
 Bailey and Lopez de Prado (2012), "The Sharpe Ratio Efficient Frontier", Journal of Risk.
 Bailey and Lopez de Prado (2014), "The Deflated Sharpe Ratio", Journal of Portfolio Management.
+Bailey, Borwein, Lopez de Prado and Zhu (2014), "Pseudo-Mathematics and Financial
+Charlatanism", Notices of the American Mathematical Society.
 Harvey and Liu (2015), "Backtesting", Journal of Portfolio Management.
 """
 
@@ -320,6 +322,49 @@ def expected_max_sharpe(
     else:
         raise ValueError("method must be 'approx' or 'exact'")
     return float(sr_mean + np.sqrt(sr_variance) * z)
+
+
+def min_backtest_length(
+    n_trials: float,
+    target_sharpe: float,
+    *,
+    method: Literal["approx", "exact"] = "approx",
+) -> float:
+    """Years of data needed before ``n_trials`` strategies without skill stop producing,
+    on average, a best annual Sharpe ratio of ``target_sharpe``.
+
+    With ``y`` years of data, the annualised Sharpe ratio estimate of a strategy with
+    no skill has a standard deviation of about ``1 / sqrt(y)``, so the best of ``N``
+    such strategies is expected to reach ``E[max_N] / sqrt(y)``, where ``E[max_N]`` is
+    the expected maximum of ``N`` standard normals (see :func:`expected_max_sharpe`).
+    Bailey, Borwein, Lopez de Prado and Zhu (2014) solve for ``y``::
+
+        MinBTL = (E[max_N] / SR_target)^2,   which is below 2 ln(N) / SR_target^2
+
+    A backtest shorter than ``MinBTL`` years cannot tell a Sharpe ratio of
+    ``target_sharpe`` from the result of trying ``N`` configurations. For example,
+    45 trials need about 5 years of data for a target of 1.
+
+    Parameters
+    ----------
+    n_trials
+        Number of (effective, independent) configurations tried.
+    target_sharpe
+        Annualised Sharpe ratio of the best configuration.
+    method
+        ``"approx"`` for the closed form above, ``"exact"`` to integrate ``E[max_N]``.
+
+    Returns
+    -------
+    float
+        Years; 0 for a single trial and ``inf`` if ``target_sharpe <= 0``.
+    """
+    if n_trials < 1:
+        raise ValueError("n_trials must be at least 1")
+    if target_sharpe <= 0:
+        return float("inf")
+    z = expected_max_sharpe(n_trials, 1.0, method=method)
+    return float((z / target_sharpe) ** 2)
 
 
 def deflated_sharpe_ratio(

@@ -24,6 +24,8 @@ def test_audit_flags_selection_luck(noise):
     assert report.n_romano_wolf == 0
     assert "Evidence of skill survives" not in report.verdict
     assert 0.0 <= report.pbo <= 1.0
+    # four years are not enough for this Sharpe ratio given the number of trials
+    assert report.min_backtest_years > report.n_obs / 252
 
 
 def test_audit_recognises_a_real_edge(noise):
@@ -35,12 +37,14 @@ def test_audit_recognises_a_real_edge(noise):
     assert report.pvalue_spa < 0.05
     assert skilled.columns[5] in report.romano_wolf_rejected
     assert report.verdict.startswith("Evidence of skill")
+    assert report.min_backtest_years < report.n_obs / 252
 
 
 def test_report_rendering(noise):
     report = audit(noise.iloc[:, :10], noise.iloc[:, 10], n_boot=199)
     text = report.to_markdown()
     assert "| Deflated Sharpe ratio" in text and "**Verdict:**" in text
+    assert "| Minimum backtest length" in text
     assert "excess of the benchmark" in text
     payload = json.loads(json.dumps(report.to_dict(), default=float))
     assert payload["n_strategies"] == 10
