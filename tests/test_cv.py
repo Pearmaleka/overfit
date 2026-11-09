@@ -116,3 +116,48 @@ def test_no_training_label_ever_overlaps_its_test_fold(n, folds, horizons, embar
     start = np.arange(n)
     for train, test in PurgedKFold(folds, t1=end, embargo=embargo).split():
         assert not _overlaps(start, end, train, test)
+
+
+def test_backtest_paths_cover_every_sample_once():
+    n = 241  # groups of unequal size
+    cv = CombinatorialPurgedKFold(6, 2, t1=label_times(n, 4))
+    preds = [test.astype(float) for _, test in cv.split()]
+    paths = cv.backtest_paths(preds)
+    assert paths.shape == (cv.n_paths, n)
+    for row in paths:
+        np.testing.assert_array_equal(row, np.arange(n))
+
+
+def test_backtest_paths_take_each_group_from_the_assigned_split():
+    cv = CombinatorialPurgedKFold(5, 2, t1=label_times(180, 2))
+    # tag every prediction with the split that produced it
+    preds = [np.full(len(test), float(s)) for s, (_, test) in enumerate(cv.split())]
+    paths = cv.backtest_paths(preds)
+    assignment = cv.paths()
+    for p in range(cv.n_paths):
+        for g, part in enumerate(cv.groups()):
+            assert np.all(paths[p, part] == assignment[p, g])
+    assert len({tuple(row) for row in paths}) == cv.n_paths
+
+
+def test_backtest_paths_with_scikit_learn():
+    lm = pytest.importorskip("sklearn.linear_model")
+    rng = np.random.default_rng(1)
+    x = rng.standard_normal((300, 3))
+    y = x @ np.array([0.5, -0.2, 0.1]) + 0.1 * rng.standard_normal(300)
+    cv = CombinatorialPurgedKFold(6, 2, t1=label_times(300, 5), embargo=0.01)
+    preds = [lm.LinearRegression().fit(x[tr], y[tr]).predict(x[te]) for tr, te in cv.split()]
+    paths = cv.backtest_paths(preds)
+    assert paths.shape == (5, 300)
+    for row in paths:
+        assert np.corrcoef(row, y)[0, 1] > 0.9
+
+
+def test_backtest_paths_validation():
+    cv = CombinatorialPurgedKFold(4, 2, t1=np.arange(40))
+    preds = [test.astype(float) for _, test in cv.split()]
+    with pytest.raises(ValueError):
+        cv.backtest_paths(preds[:-1])
+    preds[2] = preds[2][:-1]
+    with pytest.raises(ValueError):
+        cv.backtest_paths(preds)
