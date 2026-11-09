@@ -70,6 +70,7 @@ overfit audit backtests.csv --benchmark SPY
 | Naive one-sided p-value | 0.0377 |
 | Trials (effective) | 200 (145.0) |
 | Expected best Sharpe under no skill | 0.98 |
+| Minimum backtest length for this Sharpe and the effective trials | 10.2 years (sample: 5.0 years) |
 | Deflated Sharpe ratio (pass if >= 0.95) | 0.370 (0.402 with effective trials) |
 | Haircut Sharpe ratio (Bonferroni) | 0.00 (100% haircut) |
 | White Reality Check p-value | 0.782 |
@@ -106,7 +107,7 @@ and on the S&P 500.
 
 | Module | Contents | Based on |
 |---|---|---|
-| `overfit.sharpe` | Sharpe ratio standard errors (iid, non-normal, HAC); probabilistic and deflated Sharpe ratio; minimum track record length; expected maximum Sharpe ratio; haircut Sharpe ratio | Lo (2002), Mertens (2002), Bailey & López de Prado (2012, 2014), Harvey & Liu (2015) |
+| `overfit.sharpe` | Sharpe ratio standard errors (iid, non-normal, HAC); probabilistic and deflated Sharpe ratio; minimum track record length; minimum backtest length; expected maximum Sharpe ratio; haircut Sharpe ratio | Lo (2002), Mertens (2002), Bailey & López de Prado (2012, 2014), Bailey, Borwein, López de Prado & Zhu (2014), Harvey & Liu (2015) |
 | `overfit.snooping` | Reality Check; SPA test with lower, consistent and upper p-values; Romano-Wolf step-down with adjusted p-values; step-wise SPA | White (2000), Hansen (2005), Romano & Wolf (2005, 2016), Hsu, Hsu & Kuan (2010) |
 | `overfit.pbo` | Probability of backtest overfitting by combinatorially symmetric CV, performance degradation | Bailey, Borwein, López de Prado & Zhu (2017) |
 | `overfit.cv` | Purged k-fold with embargo; combinatorial purged CV with backtest paths; scikit-learn compatible | López de Prado (2018) |

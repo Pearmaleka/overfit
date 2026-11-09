@@ -124,6 +124,35 @@ def test_deflated_sharpe_from_trials(rng):
         sh.deflated_sharpe_from_trials(noise[:, :1])
 
 
+def test_min_backtest_length_reproduces_published_example():
+    # Bailey, Borwein, Lopez de Prado and Zhu (2014): with 5 years of data, no more than
+    # 45 independent configurations should be tried for a target Sharpe ratio of 1.
+    assert sh.min_backtest_length(45, 1.0) == pytest.approx(5.0, abs=0.01)
+    assert sh.min_backtest_length(46, 1.0) > 5.0
+
+
+def test_min_backtest_length_properties():
+    assert sh.min_backtest_length(1, 1.0) == 0.0
+    assert sh.min_backtest_length(100, 0.0) == float("inf")
+    for n in (2, 10, 1000, 10**6):
+        assert sh.min_backtest_length(n, 1.0) < 2 * np.log(n)  # bound stated in the paper
+    # halving the target needs four times as much data
+    assert sh.min_backtest_length(100, 0.5) == pytest.approx(4 * sh.min_backtest_length(100, 1.0))
+    with pytest.raises(ValueError):
+        sh.min_backtest_length(0.5, 1.0)
+
+
+def test_min_backtest_length_against_simulation(rng):
+    # After MinBTL years, the best of N zero-skill strategies averages the target Sharpe.
+    n_trials, target = 50, 1.0
+    days = round(252 * sh.min_backtest_length(n_trials, target, method="exact"))
+    best = []
+    for _ in range(300):
+        x = rng.standard_normal((days, n_trials))
+        best.append((x.mean(0) / x.std(0, ddof=1)).max() * np.sqrt(252))
+    assert np.mean(best) == pytest.approx(target, abs=0.04)
+
+
 def test_haircut_sharpe_ratio():
     single = sh.haircut_sharpe_ratio(0.06, 1260, 1)
     assert single.haircut == pytest.approx(0.0, abs=1e-12)
